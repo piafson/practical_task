@@ -9,15 +9,15 @@ if not exists (select * from dbo.Family where @FamilySurName = SurName)
 	    formatmessage('The %s entry does not exist!', @FamilySurName);
     throw 50001, @msg, 1;
 
-declare @sumValue INT
+declare @sumValue INT;
 select @sumValue = isnull(sum([Value]), 0)
 from dbo.Basket as b
     join dbo.Family as f 
-	    on b.ID_Family = f.ID
-where SurName = @FamilySurName
+        on b.ID_Family = f.ID
+where SurName = @FamilySurName;
     
 update dbo.Family
-    set BudgetValue = BudgetValue - @sumValue
-where SurName = @FamilySurName
+set BudgetValue = BudgetValue - @sumValue
+where SurName = @FamilySurName;
 
 go
