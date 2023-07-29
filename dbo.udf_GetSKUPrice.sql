@@ -1,5 +1,5 @@
-if OBJECT_ID('dbo.udf_GetSKUPrice') IS NOT NULL 
-    DROP FUNCTION dbo.udf_GetSKUPrice;
+if OBJECT_ID('dbo.udf_GetSKUPrice') is not null
+    drop function dbo.udf_GetSKUPrice;
 go
 
 create function dbo.udf_GetSKUPrice
